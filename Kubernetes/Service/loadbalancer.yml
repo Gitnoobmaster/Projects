@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javawebapplb
+spec:
+ type: LoadBalancer
+ selector:
+   app: javaapp
+ ports:
+ - targetPort: 8080
+   port: 80

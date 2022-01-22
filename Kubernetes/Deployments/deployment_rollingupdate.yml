@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappdeployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+     app: javaapp
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+    maxSurge: 1
+    maxUnavaliable: 1
+  minReadySeconds: 30
+  template:
+    metadata:
+      name: javawebapppod
+      labels: 
+        app: javaapp
+    spec:
+      containers:
+      - name: javawebappcontainer
+        image: dockerhandson/java-web-app:1
+        ports:
+        - containerPort: 8080

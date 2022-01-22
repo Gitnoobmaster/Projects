@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: javawebappservice
+spec:
+  type: ClusterIP
+  selector:
+    app: javaapp
+  ports:
+  - targetPort: 8080
+    port: 80
+
+# targetPort is your container port
+# Service port, using which you can access POD within cluster

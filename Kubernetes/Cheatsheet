@@ -1,0 +1,17 @@
+kubectl get pod
+kubectl get pods
+kubectl delete pod [podname]
+kubectl apply --validate=true --dry-run=true -f javawebapp.yml
+kubectl get pods -o wide
+
+kubectl create -f javawebapp.yml
+kubectl apply -f javawebapp.yml
+kubectl update -f javawebapp.yml
+
+kubectl rollout history deployment deploymentname
+kubectl rollout undo deployment deployment name --to-revision=2
+kubectl rollout status deployment deploymentname
+
+
+kubectl get pod --show-labels
+kubectl get service servicename -o yaml
