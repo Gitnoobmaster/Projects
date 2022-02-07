@@ -1,0 +1,8 @@
+terraform plan
+terraform apply
+terraform apply -auto-approve
+terraform destroy
+terraform state
+terraform apply -var "subnet_cidr_block=10.0.30.0/24"
+terraform apply -var-file terraform_var_filename.tfvars
+ 
