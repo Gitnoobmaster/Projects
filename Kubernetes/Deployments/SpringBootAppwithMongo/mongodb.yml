@@ -1,0 +1,43 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: mongodbdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      name: mongodbpod
+      labels:
+        app: mongodb
+    spec:
+      volumes:
+      - name: mongodb-pvc
+        persistentVolumeClaim:
+          claimName: mongodbpv 
+      containers:
+      - name: mongodbpod
+        image: mongo
+        ports:
+        - containerPort: 27017
+        env:
+         - name: MONGO_INITDB_ROOT_USERNAME
+           valueFrom:
+             configMapKeyRef:
+               name: springappconfigmap
+               key: username
+         - name: MONGO_INITDB_ROOT_PASSWORD
+           valueFrom:
+             secretKeyRef:
+               name: springappsecrets
+               key: password
+        volumeMounts:
+        - name: mongodbpv 
+          mountPath: /data/db
+      
+      
+      
+    
+      

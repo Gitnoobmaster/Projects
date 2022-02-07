@@ -1,0 +1,21 @@
+docker build -t <imagename>:<version> .
+
+docker build -t <hostname/IP:port>/<imagename>:<version> .
+
+docker build -t <repodetails>:<version> -f dockerfilename . # use -f if docker file name is different then dockerfilename
+
+#The Version is your build number of jenkins.
+
+docker images 
+
+docker login -u username
+
+docker login -u username -p passwd
+
+docker login -u username <privaterepourl>
+
+docker push reponame\imagename:version
+
+To recreate a image to push to another repository
+
+docker tag reponame\imagename:version otherreponame\imagename:version

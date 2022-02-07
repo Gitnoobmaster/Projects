@@ -15,3 +15,7 @@ kubectl rollout status deployment deploymentname
 
 kubectl get pod --show-labels
 kubectl get service servicename -o yaml
+
+
+kubectl run -i --tty load-generator --rm  --image=busybox /bin/sh
+

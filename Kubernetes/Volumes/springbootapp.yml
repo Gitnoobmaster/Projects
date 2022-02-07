@@ -134,7 +134,7 @@ metadata:
   name: mongo
 spec:
   type: ClusterIP
-  selector:
+  labels:
     app: mongodb
   ports:
   - port: 27017

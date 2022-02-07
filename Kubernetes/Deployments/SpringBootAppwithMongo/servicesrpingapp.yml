@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: serviceforspingapp
+spec:
+  type: LoadBalancer
+  selector: 
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 31417
+    
+
+  
